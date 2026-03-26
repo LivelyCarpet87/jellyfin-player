@@ -1,0 +1,25 @@
+<settings>
+    <setting propertyKey="serverUrl" title="Jellyfin Server URL">
+        <settingConfig type="alphaNumeric" required="true" />
+    </setting>
+
+    <setting propertyKey="apiKey" title="Jellyfin API Key">
+        <settingConfig type="password" required="true" />
+    </setting>
+
+    <setting propertyKey="musicQuality" title="Music Quality">
+        <settingConfig type="list">
+            <listEntry value="128000">Standard (128 kbps)</listEntry>
+            <listEntry value="256000">High (256 kbps)</listEntry>
+            <listEntry value="320000">Ultra (320 kbps)</listEntry>
+        </settingConfig>
+    </setting>
+
+    <setting propertyKey="bookQuality" title="Audiobook Quality">
+        <settingConfig type="list">
+            <listEntry value="32000">Low (32 kbps) - Max Space</listEntry>
+            <listEntry value="64000">Voice (64 kbps) - Recommended</listEntry>
+            <listEntry value="128000">High (128 kbps)</listEntry>
+        </settingConfig>
+    </setting>
+</settings>

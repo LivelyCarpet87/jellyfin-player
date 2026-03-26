@@ -1,0 +1,7 @@
+<properties>
+    <property id="serverUrl" type="string">https://</property>
+    <property id="apiKey" type="string"></property>
+    
+    <property id="musicQuality" type="number">256000</property>
+    <property id="bookQuality" type="number">64000</property>
+</properties>
