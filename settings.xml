@@ -1,0 +1,5 @@
+<iq:settings>
+    <iq:input id="serverUrl" type="text" label="Server URL" default="" />
+    <iq:input id="username" type="text" label="Username" default="" />
+    <iq:input id="password" type="password" label="Password" default="" />
+</iq:settings>
