@@ -24,7 +24,7 @@ class Jellyfin_Watch_PlayerConfigureSyncView extends WatchUi.View {
     function onShow() as Void {
         var menu = new WatchUi.Menu2({:title=>"Sync Settings"});
         var delegate;
-        menu.addItem(new WatchUi.MenuItem("Music", null, :music, null));
+        menu.addItem(new WatchUi.MenuItem("Playlists", null, :playlists, null));
         menu.addItem(new WatchUi.MenuItem("Audiobooks", null, :audiobooks, null));
         menu.addItem(new WatchUi.MenuItem("Sync Now", null, :sync_now, null));
         delegate = new MediaTypeMenuInputDelegate(); // a WatchUi.MenuInputDelegate

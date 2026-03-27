@@ -22,7 +22,7 @@ class MediaTypeMenuInputDelegate extends WatchUi.Menu2InputDelegate {
     function onMenuItem(item) {
         var id = item.getId();
 
-        if (id == :music) {
+        if (id == :playlists) {
             showPlaylistMenu();
         } else if (id == :audiobooks) {
 
@@ -35,9 +35,6 @@ class MediaTypeMenuInputDelegate extends WatchUi.Menu2InputDelegate {
             
         
         }
-
-        // Pop the menu off the stack to return to the main view
-        WatchUi.popView(WatchUi.SLIDE_DOWN);
     }
 
     function showPlaylistMenu() {
