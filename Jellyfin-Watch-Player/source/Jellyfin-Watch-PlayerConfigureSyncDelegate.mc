@@ -5,6 +5,7 @@ import Toybox.Time.Gregorian;
 import Toybox.Lang;
 import Toybox.Communications;
 
+
 class Jellyfin_Watch_PlayerConfigureSyncDelegate extends WatchUi.BehaviorDelegate {
 
     function initialize() {
@@ -22,29 +23,30 @@ class MediaTypeMenuInputDelegate extends WatchUi.Menu2InputDelegate {
         var id = item.getId();
 
         if (id == :music) {
-            getPlaylists();
+            showPlaylistMenu();
         } else if (id == :audiobooks) {
 
         } else if (id == :sync_now) {
-            // 1. Tell the OS to start the sync process
-            Communications.makeSyncRequest();
-            // 2. Pop the menu so the user sees the system sync UI
+            // Modern API for triggering Audio Sync
+            Communications.startSync2( {:message => "Pulling from Jellyfin."} ); 
+                        
+            // Pop the menu so the system sync UI (progress bar) takes over
             WatchUi.popView(WatchUi.SLIDE_IMMEDIATE);
+            
+        
         }
 
         // Pop the menu off the stack to return to the main view
         WatchUi.popView(WatchUi.SLIDE_DOWN);
     }
-}
 
-class SyncPlaylistMenuUI {
     function showPlaylistMenu() {
         var playlists = CollectionsManager.getPlaylists();
         var menu = new WatchUi.Menu2({:title => "Playlists"});
 
         for (var i = 0; i < playlists.size(); i++) {
             var playlist = playlists[i];
-            var ts = pl[:lastSynced];
+            var ts = playlist[:lastSynced];
             // Inline logic: If ts is null, use "Never", else format the timestamp
             var syncTimeLabel = (ts == null) 
                 ? "Never" 
