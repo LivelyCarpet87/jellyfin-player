@@ -8,11 +8,10 @@ class Jellyfin_Watch_PlayerConfigureSyncDelegate extends WatchUi.BehaviorDelegat
     }
 
     function onMenu() {
-        var menu = new WatchUi.Menu();
+        var menu = new WatchUi.Menu2({:title=>"Sync Settings"});
         var delegate;
-        menu.setTitle("Sync Content");
-        menu.addItem("Music", :music);
-        menu.addItem("Audiobooks", :audiobooks);
+        menu.addItem(new WatchUi.MenuItem("Music", null, :music, null));
+        menu.addItem(new WatchUi.MenuItem("Audiobooks", null, :audiobooks, null));
         delegate = new MediaTypeMenuInputDelegate(); // a WatchUi.MenuInputDelegate
         WatchUi.pushView(menu, delegate, WatchUi.SLIDE_IMMEDIATE);
         return true;
@@ -20,16 +19,21 @@ class Jellyfin_Watch_PlayerConfigureSyncDelegate extends WatchUi.BehaviorDelegat
 
 }
 
-class MediaTypeMenuInputDelegate extends WatchUi.MenuInputDelegate {
+class MediaTypeMenuInputDelegate extends WatchUi.Menu2InputDelegate {
     function initialize() {
-        MenuInputDelegate.initialize();
+        Menu2InputDelegate.initialize();
     }
 
     function onMenuItem(item) {
-        if (item == :music) {
-            System.println("Managing music.");
-        } else if (item == :audiobooks) {
-            System.println("Managing audiobooks.");
+        var id = item.getId();
+
+        if (id.equals(:music)) {
+            System.println("Manage music.");
+        } else if (id.equals(:audiobooks)) {
+            System.println("Manage audiobooks.");
         }
+
+        // Pop the menu off the stack to return to the main view
+        WatchUi.popView(WatchUi.SLIDE_DOWN);
     }
 }
