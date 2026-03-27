@@ -19,7 +19,7 @@ class MediaTypeMenuInputDelegate extends WatchUi.Menu2InputDelegate {
         Menu2InputDelegate.initialize();
     }
 
-    function onMenuItem(item) {
+    function onSelect(item) {
         var id = item.getId();
 
         if (id == :playlists) {
@@ -71,7 +71,7 @@ class SyncPlaylistSelectMenuDelegate extends WatchUi.Menu2InputDelegate {
         Menu2InputDelegate.initialize();
     }
 
-    function onMenuItem(item) {
+    function onSelect(item) {
         var id = item.getId();
 
         // Pop the menu off the stack to return to the main view
