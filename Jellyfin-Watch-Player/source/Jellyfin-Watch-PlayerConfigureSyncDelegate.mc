@@ -7,16 +7,6 @@ class Jellyfin_Watch_PlayerConfigureSyncDelegate extends WatchUi.BehaviorDelegat
         BehaviorDelegate.initialize();
     }
 
-    function onMenu() {
-        var menu = new WatchUi.Menu2({:title=>"Sync Settings"});
-        var delegate;
-        menu.addItem(new WatchUi.MenuItem("Music", null, :music, null));
-        menu.addItem(new WatchUi.MenuItem("Audiobooks", null, :audiobooks, null));
-        delegate = new MediaTypeMenuInputDelegate(); // a WatchUi.MenuInputDelegate
-        WatchUi.pushView(menu, delegate, WatchUi.SLIDE_IMMEDIATE);
-        return true;
-    }
-
 }
 
 class MediaTypeMenuInputDelegate extends WatchUi.Menu2InputDelegate {
