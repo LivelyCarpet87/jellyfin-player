@@ -41,6 +41,11 @@ class MediaTypeMenuInputDelegate extends WatchUi.Menu2InputDelegate {
         var playlists = CollectionsManager.getPlaylists();
         var menu = new WatchUi.Menu2({:title => "Playlists"});
 
+        if (playlists.size() == 0){
+            WatchUi.showToast("No Playlists Found", null);
+            return;
+        }
+
         for (var i = 0; i < playlists.size(); i++) {
             var playlist = playlists[i];
             var ts = playlist[:lastSynced];
